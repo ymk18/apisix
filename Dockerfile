@@ -5,7 +5,7 @@ RUN yum-config-manager --add-repo https://openresty.org/package/centos/openresty
 RUN yum install -y openresty etcd
 RUN yum install -y https://github.com/iresty/apisix/releases/download/v0.5/apisix-0.5-0.el7.noarch.rpm
 
-RUN echo "#!/bin/sh\nservice etcd start && apisix start" > /entrypoint.sh && chmod +x /entrypoint.sh
+RUN echo "#!/bin/sh\n service etcd start && apisix start" > /entrypoint.sh && chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
