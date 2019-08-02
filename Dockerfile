@@ -8,3 +8,5 @@ RUN sudo yum install yum-utils \
 RUN sudo yum install -y https://github.com/iresty/apisix/releases/download/v0.5/apisix-0.5-0.el7.noarch.rpm
 
 # TODO
+# sudo service etcd start
+# sudo apisix start
