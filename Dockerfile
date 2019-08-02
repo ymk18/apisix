@@ -1,12 +1,12 @@
-FROM centos
+# docker build -t apisix . --no-cache
 
-RUN sudo yum install yum-utils \
-    sudo yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo \
-    sudo yum install -y openresty etcd
-    # sudo service etcd start
+FROM openresty/openresty:centos
 
-RUN sudo yum install -y https://github.com/iresty/apisix/releases/download/v0.5/apisix-0.5-0.el7.noarch.rpm
+RUN yum install -y etcd luarocks git curl automake autoconf gcc pcre-devel libtool gcc-c++
+RUN luarocks install apisix
 
-# TODO
-# sudo service etcd start
+# CMD service etcd start
+
+EXPOSE 80
+
 # sudo apisix start
